@@ -1,0 +1,10 @@
+[
+    { "src": "/technologies/webgl.svg", "title": "lorenz-webgl", "text": "Lorenz attractor<br>lorenz", "href": "demos/lorenz/" },
+    { "src": "/technologies/webgl.svg", "title": "mandelbrot-webgl", "text": "Fractal visualizer<br>mandelbrot", "href": "demos/mandelbrot/" },
+    { "src": "/languages/js.svg", "title": "engine-xd", "text": "N-cube<br>engine-xd", "href": "demos/engine-xd/engine-xd/" },
+    { "src": "/languages/js.svg", "title": "engine-xd", "text": "SVG rendering<br>svg-xd", "href": "demos/engine-xd/svg-xd/" },
+    { "src": "/languages/js.svg", "title": "engine-xd", "text": "Platonic solids<br>geometry", "href": "demos/engine-xd/geometry/" },
+    { "src": "/languages/js.svg", "title": "engine-xd", "text": "Virtual displays<br>vdisplay", "href": "demos/engine-xd/vdisplay/" },
+    { "src": "/technologies/webgl.svg", "title": "xdgl", "text": "N-d WebGL<br>xdgl", "href": "demos/xdgl/" },
+    { "src": "/languages/js.svg", "title": "jsfps", "text": "N-d graphics engine<br>jsfps", "href": "demos/jsfps/" }
+]

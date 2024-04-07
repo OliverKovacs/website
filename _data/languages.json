@@ -1,0 +1,8 @@
+[
+    { "src":"cpp.svg", "text": "C++", "href": "https://github.com/OliverKovacs?tab=repositories&q=&type=&language=c%2B%2B&sort=" },
+    { "src":"rust.svg", "text": "Rust", "href": "https://github.com/OliverKovacs?tab=repositories&q=&type=&language=rust&sort=" },
+    { "src":"ts.svg", "text": "TypeScript", "href": "https://github.com/OliverKovacs?tab=repositories&q=&type=&language=typescript&sort=" },
+    { "src":"js.svg", "text": "JavaScript", "href": "https://github.com/OliverKovacs?tab=repositories&q=&type=&language=javascript&sort=" },
+    { "src":"html.svg", "text": "HTML5", "href": "https://github.com/OliverKovacs?tab=repositories&q=&type=&language=javascript&sort=" },
+    { "src":"css.svg", "text": "CSS3", "href": "https://github.com/OliverKovacs?tab=repositories&q=&type=&language=javascript&sort=" }
+]

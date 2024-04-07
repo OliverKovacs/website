@@ -1,0 +1,12 @@
+[        
+    { "src": "radiohead-in_rainbows.jpg", "title": "Radiohead", "text": "In Rainbows<br>2007" },
+    { "src": "tame_impala-currents.jpg", "title": "Tame Impala", "text": "Currents<br>2015" },
+    { "src": "foals-antidotes.jpg", "title": "Foals", "text": "Antidotes<br>2008" },
+    { "src": "pink_floyd-the_wall.jpg", "title": "Pink Floyd", "text": "The Wall<br>1979" },
+    { "src": "joy_division-unknown_pleasures.png", "title": "Joy Division", "text": "Unknown Pleasures<br>1979" },
+    { "src": "new_order-substance.jpg", "title": "New Order", "text": "Substance<br>1987" },
+    { "src": "alt_j-an_awsome_wave.jpg", "title": "Alt-J", "text": "An Awseome Wave<br>2012" },
+    { "src": "daft_punk-random_access_memories.jpg", "title": "Daft Punk", "text": "Random Access Memories<br>2013" },
+    { "src": "warpaint-the_fool.jpg", "title": "Warpaint", "text": "The Fool<br>2010" },
+    { "src": "solstafir-berdreyminn.jpg", "title": "Sólstafir", "text": "Berdreyminn<br>2017" }
+]

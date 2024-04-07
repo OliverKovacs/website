@@ -1,0 +1,8 @@
+[
+    { "src": "/technologies/vulkan.svg", "title": "vulkan-xd", "text": "N-d rendering<br>C++, Vulkan", "href": "https://github.com/OliverKovacs/vulkan-xd" },
+    { "src": "/technologies/webgl.svg", "title": "lorenz-webgl", "text": "Lorenz attractor<br>WebGL, Chrome", "href": "https://github.com/OliverKovacs/lorenz-webgl" },
+    { "src": "/technologies/webgl.svg", "title": "mandelbrot-webgl", "text": "Fractal visualizer<br>JavaScript, WebGL", "href": "https://github.com/OliverKovacs/mandelbrot-webgl" },
+    { "src": "/organizations/dx81.png", "title": "engine-xd", "text": "N-d graphics engine<br>JavaScript, ECS", "href": "https://github.com/dx81/engine-xd" },
+    { "src": "/technologies/dialogflow.svg", "title": "Wilson", "text": "Diagnostic chatbot<br>DialogFlow, ICD", "href": "https://github.com/hiubok/wilson" },
+    { "src": "/languages/rust.svg", "title": "Logos", "text": "Fact-checking chatbot<br>Rust, Google Fact Check", "href": "https://github.com/hiubok/logos" }
+]

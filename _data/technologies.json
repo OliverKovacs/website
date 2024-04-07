@@ -1,0 +1,17 @@
+[
+    { "src": "nvim.svg", "text": "Neovim" },
+    { "src": "vscode.svg", "text": "VS Code" },
+    { "src": "node.svg", "text": "Node.js" },
+    { "src": "npm.svg", "text": "npm" },
+    { "src": "electron.svg", "text": "Electron" },
+    { "src": "reactjs.svg", "text": "React" },
+    { "src": "reactts.svg", "text": "React Native" },
+    { "src": "vulkan.svg", "text": "Vulkan" },
+    { "src": "opengl.svg", "text": "OpenGL" },
+    { "src": "webgl.svg", "text": "WebGL" },
+    { "src": "docker.svg", "text": "Docker" },
+    { "src": "sagemath.svg", "text": "SageMath" },
+    { "src": "git.svg", "text": "Git" },
+    { "src": "github.svg", "text": "GitHub" },
+    { "src": "gitea.svg", "text": "Gitea" }
+]
