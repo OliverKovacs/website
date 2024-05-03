@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "Anti-rev"
+date:   2024-05-02 00:00:00 +0200
+categories: writeup
+icon:   "./assets/img/languages/python.svg"
+text:   "openECSC 2024<br>rev"
+---
+
+**openECSC 2024 - Round 2**
+
+by [Oliver Kovacs](https://oliverkovacs.dev)
+
+Category: `rev`
+
+### Description
+
+```
+Good luck finding the secret word for my super secure program!
+```
+
+Attachments: `anti-rev`
+
+### Solution
+
+```python
+import angr
+
+project = angr.Project("anti-rev", auto_load_libs=True)
+simgr = project.factory.simulation_manager(p.factory.full_init_state())
+simgr.explore(find=0x401def, avoid=0x401df8)
+print(simgr.found[0].posix.dumps(0))
+```
+
+### Bonus
+
+Use `angr` to disassemble and find address to search for.
+
+```python
+import angr
+
+project = angr.Project("anti-rev", auto_load_libs=False)
+cfg = project.analyses.CFG(normalize=True)
+for node in sorted(cfg.model.nodes(), key=lambda n: n.addr):
+    if not node.is_simprocedure:
+        node.block.pp()
+```

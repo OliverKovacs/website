@@ -1,0 +1,318 @@
+---
+layout: post
+title:  "MathMAC"
+date:   2024-05-02 00:00:00 +0200
+categories: writeup
+icon:   "./assets/img/languages/python.svg"
+text:   "openECSC 2024<br>crypto"
+---
+
+**openECSC 2024 - Round 2**
+
+by [Oliver Kovacs](https://oliverkovacs.dev)
+
+Category: `crypto`
+
+### Description
+
+```
+Why using boring symmetric crypto for MACs when we can use fancy math?
+```
+
+Attachments: `mathmac.py` (see [Appendix](#appendix))
+
+### Probem
+
+Let $$p = 8636821143825786083$$ and $$M = 64$$.  
+Let $$\bold k = k_0, \ldots,k_M$$ where $$k_i \in \mathbb Z_{\lt p}$$ be a private key chosen at random.  
+Let $$\bold x  \in \{0, 1\}^M$$ with $$\bold x = x_1, \ldots, x_M$$ be an $$M$$-bit binary word.  
+Let $$h \colon \{0, 1\}^M \to \mathbb Z_p$$ be a hash function defined as
+
+$$
+h(\bold x) = 4^{k_0 + x_1 k_1+ \cdots x_M k_M} \mod p \ .
+$$
+
+The challenge is:
+
+- The attacker can request an unlimited amount of word/hash pairs $$(\bold x, h(\bold x))$$ chosen at random.
+- Then the attacker has to submit a word/hash pair $$(\bold x ^\prime, h(\bold x ^\prime))$$ that has not yet been revealed.
+    - If the submission is correct the attacker obtains the flag.
+    - Only a single submission can be made.
+
+### Solution
+
+The first step involves solving the [discrete logarithm problem (DLP)](https://en.wikipedia.org/wiki/Discrete_logarithm).
+
+#### DLP
+
+Let $$h(\bold x)$$ be an element of the cyclic subgroup $$\langle 4 \rangle$$ of $$\mathbb Z_p^*$$.  
+If $$4^n \equiv h(\bold x) \mod p$$ then $$n$$ is the discrete logarithm of $$h(\bold x)$$ to the base $$4$$ denoted as $$n = \log_4(h(\bold x))$$.  
+Solving this is useful because $$n$$ is directly related to $$k_0 + x_1 k_1 + \cdots x_M k_M$$.
+
+Some notes:
+- $$\lvert \mathbb Z_p^*\rvert = p - 1$$.
+- From [Lagrange's theorem](https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)) it follows that $$\lvert4\rvert$$ divides $$\lvert \mathbb Z_p^*\rvert$$
+    - This means that  $$|4|$$ is $$1$$, $$2$$, $$4318410571912893041$$ or $$8636821143825786082$$.  
+    It's easy to see that in practice only the last two are possible.
+- The DLP is easy to solve if the order of the group is [smooth](https://en.wikipedia.org/wiki/Smooth_number) using the [Pohlig-Hellman algorithm](https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm).
+    - This is not the case because $$p = 8636821143825786083 = 2 \cdot 4318410571912893041 + 1$$ is a safe prime.
+- The base 4 doesn't matter. Computing a logarithm to any base $$x$$ is sufficient, because 
+
+$$
+\log_ba = log_x a \cdot (\log_xb)^{-1} \ .
+$$
+
+The fastest known algorithm to compute the DLP in this case is a number field sieve.  
+One implementation is [CADO-NFS](https://cado-nfs.gitlabpages.inria.fr/).
+
+#### CADO-NFS
+Setup:
+```sh
+git clone https://gitlab.inria.fr/cado-nfs/cado-nfs
+cd cado-nfs
+make
+# create paramter files for 19 bit
+cp parameters/dlp/params.p30 parameters/dlp/params.p19
+cp parameters/dlp/p30.hint parameters/dlp/p19.hint
+```
+Example: Compute the DLP of `4802397593893189429`:
+
+```sh
+# ell is the order of ⟨4⟩
+./cado-nfs.py --dlp \
+    --ell 4318410571912893041 \
+    target=4802397593893189429 \
+    8636821143825786083
+# 2192507630663880847
+
+./cado-nfs.py --dlp \
+    --ell 4318410571912893041 \
+    target=4 \
+    8636821143825786083
+# 941720563644317575
+```
+
+Thus $$\log_4 4802397593893189429 = 2192507630663880847 \cdot 941720563644317575^{-1}$$
+
+```python
+# python
+p = 8636821143825786083
+ell = 4318410571912893041
+result = 2192507630663880847 * pow(941720563644317575, -1, ell) # 1234567890
+
+# double check the result
+pow(4, result, p)   # 4802397593893189429 → correct
+```
+
+#### Attack
+
+Now we need the hashes of three words $$\bold a, \bold b, \bold c$$ such that $$\bold a + \bold b - \bold c$$ doesn't under- or overflow any of the individual bits.  
+Then we can compute the hash of $$\bold z = \bold a + \bold b - \bold c$$ as follows:
+
+$$
+h(\bold z) = 4^{\log_4(h(\bold a)) + \log_4(h(\bold b)) + (\log_4(h(\bold c)))^{-1}} \mod p
+$$
+
+Note that we need two positive and one negative term so that the secret $$k_0$$ contained in every hash occurs exactly once.
+
+#### Conclusion
+
+A high level overview of the exploit is:
+- Generate around 1000 (word, hash) pairs.
+- Do a bruteforce search to find 3 suitable words $$\bold a, \bold b, \bold c$$.
+- Compute the discrete logarithm of the hashes using CADO-NFS.
+- Forge the hash of $$\bold z = \bold a + \bold b - \bold c$$ as explained.
+- Submit $$(\bold z, h(\bold z))$$.
+- Profit.
+
+A reference implementation can be found in the [Appendix](#appendix).
+
+### Appendix
+
+`solve.py`
+```python
+# this program expects an input file data.txt
+# each line should contain a 'value,hash(value)' pair
+# around 1000 pairs seem to be ideal
+# this program outputs a value,hash(value) pair to submit
+
+import subprocess
+from pathlib import Path
+from random import randint
+
+p = 8636821143825786083
+q = 4318410571912893041
+g = 4
+
+M = 64
+N = 1000
+MAX = 2**M - 1
+
+# change as needed
+CADO_PATH = "/home/user/opt/cado-nfs"
+CADO = str(Path(CADO_PATH, 'cado-nfs.py'))
+
+# given the multiplicative group of integers mod p (ℤ/pℤ)^*
+# and the subgroup H generated by g where |g| = q and h ∈ H
+# find x such that g^x ≡ h (mod p)  
+def dlp(h, g, q, p):
+    log_h = cado_nfs(h, q, p)
+    log_g = cado_nfs(g, q, p)
+    log_g_inv = pow(log_g, -1, q)
+    log = log_h * log_g_inv % q
+    return log
+
+# precompute log 4
+cache = { 4: 941720563644317575 }
+
+def cado_nfs(t, o, p):
+    cached = cache.get(t)
+    if (cached != None): return cached
+
+    cmd = [
+        CADO,
+        '--dlp',
+        '--ell', str(o),
+        'target=' + str(t),
+        str(p)
+    ]
+
+    proc = subprocess.Popen(cmd,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
+
+    out = proc.stdout.readline()
+    out = int(out.decode('ascii')[0:-1])
+    cache.update({ t: out })
+    return int(out)
+
+# brute-froce search
+def search(arr):
+    n = len(arr)
+    for i1 in range(n):
+        for i2 in range(i1 + 1, n):
+            e1 = arr[i1]
+            e2 = arr[i2]
+            AND = e1 & e2
+            NOR = MAX ^ (e1 | e2)
+            for i3 in range(n):
+                if (i3 == i1 or i3 == i2): continue
+                e3 = arr[i3]
+                INV = MAX ^ e3
+                if (AND & e3 == AND and NOR & INV == NOR):
+                    return (i1, i2, i3)
+
+    print("failed")
+    exit(-1)
+
+def solve(array):
+    print("p =", p)
+    print("q =", q)
+    print("g =", g)
+    print("# searching for a, b, c...")
+
+    i1, i2, i3 = search(list(map(lambda x: x[0], array)))
+    x = array[i1][0] + array[i2][0] - array[i3][0]
+
+    print("a =", array[i1][0])
+    print("b =", array[i2][0])
+    print("c =", array[i3][0])
+    print("x =", x)
+    print("hash_a =", array[i1][1])
+    print("hash_b =", array[i2][1])
+    print("hash_c =", array[i3][1])
+    print("# solving dlp...")
+    
+    log_a = dlp(array[i1][1], g, q, p)
+    log_b = dlp(array[i2][1], g, q, p)
+    log_c = dlp(array[i3][1], g, q, p)
+    log_c_inv = pow(log_c, -1, q)
+    log_x = log_a * log_b * log_c_inv % q
+    hash_x = pow(4, log_x, p)
+
+    print("log_a =", log_a)
+    print("log_b =", log_b)
+    print("log_c =", log_c)
+    print("log_x =", log_x)
+    print("hash_x =", hash_x)
+
+    return (x, hash_x)
+
+with open('data.txt', 'r') as file:
+    txt = file.read()
+    lines = txt.split('\n')[0:-1]
+    arr = list(map(lambda line: list(map(int, line.split(','))), lines))
+
+x, log_x = solve(arr)
+print(str(x) + ',' + str(log_x))
+```
+
+`mathmac.py`
+```python
+#!/usr/bin/env python3
+
+import os
+from random import randint
+import json
+
+flag = os.getenv('FLAG', 'flag{redacted}')
+
+class MAC:
+    def __init__(self, n):
+        self.p = 8636821143825786083
+        self.n = n
+        self.sk = [randint(0, self.p) for _ in range(n)]
+        self.base = pow(4, randint(0, self.p), self.p)
+    
+    def sign(self, x):
+        if x < 0 or x >= 2**self.n:
+            return None
+        x = list(map(int, bin(x)[2:].zfill(self.n)))
+        assert len(x) == self.n
+        res = self.base
+        for ai, xi in zip(self.sk, x):
+            if xi == 1:
+                res = pow(res, ai, self.p)
+        return res
+
+
+def menu():
+    print("1. Generate token")
+    print("2. Validate token")
+    print("3. Quit")
+    return int(input("> "))
+
+
+def main():
+    print("Welcome to the magic MathMAC. Can you become a wizard and guess tokens?")
+    M = 64
+    mac = MAC(M)
+    data = []
+    while True:
+        choice = menu()
+        if choice == 1:
+            x = randint(0, 2**M-1)
+            data.append(x)
+            tag = mac.sign(x)
+            print(f"{x},{tag}")
+        elif choice == 2:
+            x, tag = input().strip().split(",")
+            x = int(x)
+            tag = int(tag)
+            actual_tag = mac.sign(x)
+            if actual_tag is None or tag != actual_tag:
+                print("Unlucky")
+                exit(1)
+
+            if x in data:
+                print("Yup. I know.")
+            else:
+                print(flag)
+        else:
+            exit(0)
+
+
+if __name__ == "__main__":
+    main()
+```

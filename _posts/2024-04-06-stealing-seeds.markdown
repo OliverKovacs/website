@@ -3,12 +3,12 @@ layout: post
 title:  "Stealing Seeds"
 date:   2024-04-06 00:00:00 +0200
 categories: writeup
+icon:   "./assets/img/languages/python.svg"
+text:   "openECSC 2024<br>crypto"
 ---
 
-## openECSC 2024 - Round 1
+**openECSC 2024 - Round 1**
 
-<!-- ##  Stealing Seeds -->
- 
 by [Oliver Kovacs](https://oliverkovacs.dev)
 
 Category: `crypto`

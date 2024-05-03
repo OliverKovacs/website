@@ -28,8 +28,7 @@ layout: home
     <h2 class="primary">Languages</h2>
     <ul id="language-list">
         {% for element in site.data.languages %}
-            {% capture src %}./assets/img/languages/{{ element.src }}{% endcapture %}
-            {% include ui-icon.html href=element.href src=src text=element.text %}
+            {% include ui-icon-obj.html prefix="./assets/img/languages/" element=element %}
         {% endfor %}
     </ul>
     <br>
@@ -37,18 +36,16 @@ layout: home
     <h2 class="primary">Technologies</h2>
     <ul id="technology-list">
         {% for element in site.data.technologies %}
-            {% capture src %}./assets/img/technologies/{{ element.src }}{% endcapture %}
-            {% include ui-icon.html href=element.href src=src text=element.text %}
+            {% include ui-icon-obj.html prefix="./assets/img/technologies/" element=element %}
         {% endfor %}
     </ul>
 </div>
 
 <div class="page">
     <h2 class="primary">Writeups</h2>
-    <ul id="music-list">
-        {% for element in site.data.writeups %}
-            {% capture src %}./assets/img/{{ element.src }}{% endcapture %}
-            {% include ui-card.html src=src title=element.title text=element.text %}
+    <ul id="project-list">
+        {% for post in site.posts %}
+            {% include ui-card.html prefix="" src=post.icon href=post.url title=post.title text=post.text %}
         {% endfor %}
     </ul>
     <br>
@@ -57,8 +54,7 @@ layout: home
     <h2 class="primary">Projects</h2>
     <ul id="project-list">
         {% for element in site.data.projects %}
-            {% capture src %}./assets/img/{{ element.src }}{% endcapture %}
-            {% include ui-card.html src=src title=element.title text=element.text %}
+            {% include ui-card-obj.html prefix="./assets/img/" element=element %}
         {% endfor %}
     </ul>
     <br>
@@ -67,8 +63,7 @@ layout: home
     <h2 class="primary">Demos</h2>
     <ul id="demo-list">
         {% for element in site.data.demos %}
-            {% capture src %}./assets/img/{{ element.src }}{% endcapture %}
-            {% include ui-card.html src=src title=element.title text=element.text %}
+            {% include ui-card-obj.html prefix="./assets/img/" element=element %}
         {% endfor %}
     </ul>
 </div>
@@ -77,8 +72,7 @@ layout: home
     <h2 class="primary">Music</h2>
     <ul id="music-list">
         {% for element in site.data.music %}
-            {% capture src %}./assets/img/music/{{ element.src }}{% endcapture %}
-            {% include ui-card.html src=src title=element.title text=element.text %}
+            {% include ui-card-obj.html prefix="./assets/img/music/" element=element %}
         {% endfor %}
     </ul>
 </div>

@@ -1,9 +1,9 @@
 <li class="ui-card">
-    <a href="{{ element.href }}">
-        <img src="{{ include.src }}" alt="" loading="lazy">
+    <a href="{{ include.href }}">
+        <img src="{{ include.prefix }}{{ include.src }}" alt="" loading="lazy">
         <div id="container">
-            <b><div id="title">{{ element.title }}</div></b>
-            <div id="text">{{ element.text }}</div>
+            <b><div id="title">{{ include.title }}</div></b>
+            <div id="text">{{ include.text }}</div>
         </div>
     </a>
 </li>
