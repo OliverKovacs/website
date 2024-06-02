@@ -6,95 +6,83 @@ layout: home
 ---
 
 <div class="page">
-    <h1 class="primary">
+    <h1>
         <img alt="" id="pfp" src="assets/img/projects/pfp.png">
         {{ page.title }}
     </h1>
-    <ul id="contact-list">
+    <ul>
         {% for element in site.data.contact %}
             {% capture src %}./assets/img/contact/{{ element.src }}{% endcapture %}
             {% include ui-contact.html href=element.href src=src %}
         {% endfor %}
     </ul>
     <br>
-    <br>
-    Navigate using {% include ui-key.html content="j"%}{% include ui-key.html content="k"%}
-    <br>
-    <div style="height: 5px"></div>
-    Rotate using {% include ui-key.html content="1"%}{% include ui-key.html content="2"%}{% include ui-key.html content="3"%}
-    <br>
-    <br>
-    <br>
-    <h2 class="primary">Languages</h2>
-    <ul id="language-list">
+    <p>Navigate using <span class="key">j</span> <span class="key">k</span></p>
+    <p>Rotate using <span class="key">1</span> <span class="key">2</span> <span class="key">3</span></p>
+    <h2>Languages</h2>
+    <ul class="vert-list">
         {% for element in site.data.languages %}
             {% include ui-icon-obj.html prefix="./assets/img/languages/" element=element %}
         {% endfor %}
     </ul>
-    <br>
-    <br>
-    <h2 class="primary">Technologies</h2>
+    <h2>Technologies</h2>
     <ul id="technology-list">
         {% for element in site.data.technologies %}
             {% include ui-icon-obj.html prefix="./assets/img/technologies/" element=element %}
         {% endfor %}
     </ul>
-</div>
-
-<div class="page">
-    <h2 class="primary">Writeups</h2>
-    <ul id="project-list">
+    <h2>Blog</h2>
+    <ul class="vert-list">
         {% for post in site.posts %}
-            {% include ui-card.html prefix="" src=post.icon href=post.url title=post.title text=post.text %}
+            {% if post.categories contains "blog" %}
+                {% include ui-card.html prefix="" src=post.icon href=post.url title=post.title text=post.text %}
+            {% endif %}
         {% endfor %}
     </ul>
-    <br>
-    <br>
-    <br>
-    <h2 class="primary">Projects</h2>
-    <ul id="project-list">
+    <h2>Writeups</h2>
+    <ul class="vert-list">
+        {% for post in site.posts %}
+            {% if post.categories contains "writeup" %}
+                {% include ui-card.html prefix="" src=post.icon href=post.url title=post.title text=post.text %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <h2>Projects</h2>
+    <ul class="vert-list">
         {% for element in site.data.projects %}
             {% include ui-card-obj.html prefix="./assets/img/" element=element %}
         {% endfor %}
     </ul>
-    <br>
-    <br>
-    <br>
-    <h2 class="primary">Demos</h2>
-    <ul id="demo-list">
+    <h2>Demos</h2>
+    <ul>
         {% for element in site.data.demos %}
             {% include ui-card-obj.html prefix="./assets/img/" element=element %}
         {% endfor %}
     </ul>
-</div>
-
-<div class="page">
-    <h2 class="primary">Music</h2>
-    <ul id="music-list">
+    <h2>Music</h2>
+    <ul class="vert-list">
         {% for element in site.data.music %}
             {% include ui-card-obj.html prefix="./assets/img/music/" element=element %}
         {% endfor %}
     </ul>
-</div>
-
-<div class="page">
-    <h2 class="primary">About</h2>
-    <ul id="about">
+    <h2>About</h2>
+    <ul>
         Made with 
         {% include ui-icon.html href="https://www.typescriptlang.org/" src="./assets/img/languages/ts.svg" text="TypeScript" %}
         {% include ui-icon.html href="https://jekyllrb.com/" src="./assets/img/technologies/jekyll.svg" text="Jekyll" %}
-        {% include ui-icon.html href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" src="./assets/img/technologies/webcomponents.svg" text="Web Components" %}
         {% include ui-icon.html href="https://www.khronos.org/webgl/" src="./assets/img/technologies/webgl.svg" text="WebGL" %}
     </ul>
-    <ul id="about">
+    <ul>
         Made by 
         {% include ui-icon.html href="https://github.com/OliverKovacs" src="./assets/img/projects/pfp.png" text="me" %}
     </ul>
-    <ul id="about">
+    <ul>
         Hosted on 
         {% include ui-icon.html href="https://pages.github.com/" src="./assets/img/contact/github.svg" text="GitHub" %}
     </ul>
     <br>
+    Press <span class="key">Enter</span>
     <br>
-    Press {% include ui-key.html content="Enter"%}
+    <br>
+    <br>
 </div>

@@ -1,4 +1,5 @@
 ---
+author: "Oliver Kovacs"
 layout: post
 title:  "Anti-rev"
 date:   2024-05-02 00:00:00 +0200
@@ -9,11 +10,9 @@ text:   "openECSC 2024<br>rev"
 
 **openECSC 2024 - Round 2**
 
-by [Oliver Kovacs](https://oliverkovacs.dev)
-
 Category: `rev`
 
-### Description
+## Description
 
 ```
 Good luck finding the secret word for my super secure program!
@@ -21,7 +20,7 @@ Good luck finding the secret word for my super secure program!
 
 Attachments: `anti-rev`
 
-### Solution
+## Solution
 
 ```python
 import angr
@@ -32,7 +31,7 @@ simgr.explore(find=0x401def, avoid=0x401df8)
 print(simgr.found[0].posix.dumps(0))
 ```
 
-### Bonus
+## Bonus
 
 Use `angr` to disassemble and find address to search for.
 

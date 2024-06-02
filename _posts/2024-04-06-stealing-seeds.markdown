@@ -1,4 +1,5 @@
 ---
+author: "Oliver Kovacs"
 layout: post
 title:  "Stealing Seeds"
 date:   2024-04-06 00:00:00 +0200
@@ -9,17 +10,15 @@ text:   "openECSC 2024<br>crypto"
 
 **openECSC 2024 - Round 1**
 
-by [Oliver Kovacs](https://oliverkovacs.dev)
-
 Category: `crypto`
 
-### Description
+## Description
 ```
 I found an interesting way to generate numbers with someone. Wanna try?
 ```
 Attachments: `stealing-seeds.py` (see [Appendix](#appendix))
 
-### Probem
+## Probem
 
 Let $$s \in \mathbb{P}$$ and $$k \in \mathbb{Z}$$ with $$0 \le s, k \lt 2^{256}$$ be two secret numbers chosen at random.
 
@@ -34,7 +33,7 @@ where $$\oplus$$ denotes bit-wise XOR.
 
 Given that you can compute $$f_1(u)$$ and $$f_2(u)$$ for any $$u \in \{0, 1\}^{256}$$, find $$s$$.
 
-### Solution
+## Solution
 
 This may not be the most elegant solution, however I will explain how to systematically find it without any advanced knowledge of cryptography and semi-formally argue why it is correct.
 
@@ -229,10 +228,14 @@ What remains is to reverse engineer the equation for the indices to compare at e
 One possible solution can be found in the [Appendix](#appendix).
 Then some automated way of submitting requests needs to be created to obtain the seed from the remote server.
 
-### Appendix
-
 Visualisation of the $$p_s(u)$$ table obtained by coloring $$-1$$ white.
-![test](/assets/img/posts/vis.png)
+
+## Appendix
+
+<figure>
+    <img src="/assets/img/posts/vis.png" alt="Graph"/>
+    <figcaption>Visualisation of the \(p_s(u)\) table obtained by coloring \(-1\) white.</figcaption>
+</figure>
 
 `solve.py`
 

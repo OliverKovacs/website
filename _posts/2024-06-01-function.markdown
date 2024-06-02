@@ -1,0 +1,221 @@
+---
+author:     Oliver Kovacs
+categories: blog
+date:       2024-06-01 00:00:00 +0200
+icon:       "./assets/img/technologies/sagemath.svg"
+layout:     post
+text:       mathematics
+title:      "Function connecting points with straight lines"
+---
+
+<!--How to find a function that connects a list of points with straight line segments.-->
+
+## Problem
+
+Given a list of $$n$$ Points $$\bold P = (P_1, P_2, …, P_n)$$ where $$P_i = (P_{i,x}, P_{i,y})$$ ordered along the $$x$$-axis, what function $$f(x)$$, when graphed, connects the points in the domain $$[P_{1,x}; P_{n,x}]$$ with straight lines?
+
+<figure>
+    <img src="/assets/img/posts/graph.svg" alt="Graph"/>
+    <figcaption>
+    Example: \(f(x)\) connects the points \((1, 1)\), \((2, 3)\) and \((4, 2)\) in \([1; 4]\).
+    </figcaption>
+</figure>
+
+## Solution
+
+$$
+f(x) = \sum_{i = 0}^n a_i \lvert x - P_{i,x} \rvert
+$$
+
+where
+
+$$
+\begin{bmatrix}
+    a_1    \\
+    \vdots \\
+    a_n    \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    P_{1,y} \\
+    \vdots  \\
+    P_{n,y} \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+    \lvert P_{1,x} - P_{1,x} \rvert & \cdots & \lvert P_{1,x} - P_{n,x} \rvert \\
+    \vdots                          & \ddots & \vdots                          \\
+    \lvert P_{n,x} - P_{1,x} \rvert & \cdots & \lvert P_{n,x} - P_{n,x} \rvert \\
+\end{bmatrix}^{-1} \ .
+$$
+
+> Note: I came up with this on my own so there are probably better ways to do this.
+
+## Explanation
+
+Consider the function $$g(x) = a \lvert x - b \rvert$$: it is like a linear function, $$a$$ determines the steepness, but it's mirrored at $$b$$ along the $$y$$ axis.
+
+If you sum multiple of these functions with different $$a$$ and $$b$$ values together, you get a zigzagged line, something that could work as the function we are searching for.
+
+Let's assume we can use the $$x$$-values of the given points as values for $$b$$. Then we get:
+
+$$
+f(x) = \sum_{i = 0}^n a_i \lvert x - P_{i,x} \rvert
+$$
+
+which is the same as
+
+$$
+f(x) = a_1 \lvert x - P_{1,x} \rvert + \cdots + a_n \lvert x - P_{n,x} \rvert \ .
+$$
+
+Now we need to find the values for $$a = (a_1, a_2, \ldots, a_n)$$.
+
+We know the values of $$f(x)$$ at the given points:
+
+$$
+\forall p \in P \colon f(p_x) = p_y
+$$
+
+which in simpler terms just means
+
+$$
+\begin{cases}
+    f(P_{1,x}) = P_{1,y}     \\
+    \quad \quad \quad \vdots \\
+    f(P_{n,x}) = P_{n,y}     \\
+\end{cases} \ .
+$$
+
+From this we can construct a linear system of equations:
+
+$$
+\begin{cases}
+    a_1 \lvert P_{1,x} - P_{1,x} \rvert + \cdots + a_n \lvert P_{1,x} - P_{n,x} \rvert = P_{1,y}                              \\
+    \quad \quad \quad \vdots \quad \quad \quad \ \ \ \ddots \quad \quad \quad \quad \ \vdots \quad \quad \quad \quad \ \vdots \\
+    a_1 \lvert P_{n,x} - P_{1,x} \rvert + \cdots + a_n \lvert P_{n,x} - P_{n,x} \rvert = P_{n,y}                              \\
+\end{cases} \ .
+$$
+
+All values for $$P$$ are known, so at this point, we could simply use an equation solver to get $$a$$.
+However, it can also be rewritten as a matrix multiplication:
+
+$$
+\begin{bmatrix}
+    \lvert P_{1,x} - P_{1,x} \rvert & \cdots & \lvert P_{1,x} - P_{n,x} \rvert \\
+    \vdots                          & \ddots & \vdots                          \\
+    \lvert P_{n,x} - P_{1,x} \rvert & \cdots & \lvert P_{n,x} - P_{n,x} \rvert \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+    a_1    \\
+    \vdots \\
+    a_n    \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    P_{1,y} \\
+    \vdots  \\
+    P_{n,y} \\
+\end{bmatrix} \ .
+$$
+
+Solve for $$a$$:
+
+$$
+\begin{bmatrix}
+    a_1    \\
+    \vdots \\
+    a_n    \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    P_{1,y} \\
+    \vdots  \\
+    P_{n,y} \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+    \lvert P_{1,x} - P_{1,x} \rvert & \cdots & \lvert P_{1,x} - P_{n,x} \rvert \\
+    \vdots                          & \ddots & \vdots                          \\
+    \lvert P_{n,x} - P_{1,x} \rvert & \cdots & \lvert P_{n,x} - P_{n,x} \rvert \\
+\end{bmatrix}^{-1} \ .
+$$
+
+And that's it.
+
+## Example
+
+Let's find $$f(x)$$ for the points $$(1, 1)$$, $$(2, 3)$$ and $$(4, 2)$$.
+First, we need to find the values for $$a$$.
+
+Using the above formula, we get:
+
+$$
+\begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 \\
+    3 \\
+    2 \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+    \lvert 1 - 1 \rvert & \lvert 1 - 2 \rvert & \lvert 1 - 4 \rvert \\
+    \lvert 2 - 1 \rvert & \lvert 2 - 2 \rvert & \lvert 2 - 4 \rvert \\
+    \lvert 4 - 1 \rvert & \lvert 4 - 2 \rvert & \lvert 4 - 4 \rvert \\
+\end{bmatrix}^{-1} \ .
+$$
+
+Simplify:
+
+$$
+\begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 \\
+    3 \\
+    2 \\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+    0 & 1 & 3 \\
+    1 & 0 & 2 \\
+    3 & 2 & 0 \\
+\end{bmatrix}^{-1} \ .
+$$
+
+Solve using SageMath:
+
+```python
+V = matrix(QQ, [1, 3, 2])
+M = matrix(QQ, [[0, 1, 3], [1, 0, 2], [3, 2, 0]])
+a = V * pow(M, -1)
+
+a # [ 3/2 -5/4  3/4]
+```
+
+$$
+a = \left(\frac 3 2, - \frac 5 4, \frac 3 4\right)
+$$
+
+Now we can use the very first formula to get $$f(x)$$:
+
+$$
+f(x) = \frac 3 2 \lvert x - 1 \rvert - \frac 5 4 \lvert x - 2 \rvert + \frac 3 4 \lvert x - 4 \rvert \ .
+$$
+
+<figure>
+    <img src="/assets/img/posts/graph.svg" alt="Graph" height="450"/>
+    <figcaption>
+    This is the graph of \(f(x)\).
+    </figcaption>
+</figure>
