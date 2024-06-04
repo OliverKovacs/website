@@ -88,7 +88,7 @@ window.onload = async () => {
     document.addEventListener("keydown", event => {
         if (event.code == "KeyJ") Scroll.scroll_to_next();
         if (event.code == "KeyK") Scroll.scroll_to_prev();
-        if (event.code == "Enter") {
+        if (event.code == "Numpad0" || event.code == "Digit0") {
             engine.stop();
             f([window.innerWidth, window.innerHeight], obj);
         }

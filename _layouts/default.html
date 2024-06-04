@@ -4,16 +4,19 @@
   {%- include head.html -%}
 
   <body>
+    <a id="skip" href="#main"><h2>Skip to main content</h2></a>
 
+    <div id="overlay">
     {%- include header.html -%}
 
-    <main class="page-content" aria-label="Content">
+    <main id="main" class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
 
     {%- include footer.html -%}
+    </div>
 
   </body>
 

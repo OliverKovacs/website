@@ -2,13 +2,11 @@
 layout: default
 ---
 
-<div class="home">
-    <div id="container">
-        <canvas id="canvas" class="background"></canvas>
-        <div id="overlay" class="text">
-            <div id="container">
-                {{ content }}
-            </div>
+<div id="container">
+    <canvas id="canvas" class="background"></canvas>
+    <div id="overlay">
+        <div id="container">
+            {% include anchor_headings.html html=content anchorBody="#" %}
         </div>
     </div>
 </div>
