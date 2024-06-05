@@ -1,9 +1,17 @@
-<li class="ui-card">
-    <a href="{{ include.href }}">
-        <img src="{{ include.prefix }}{{ include.src }}" alt="" loading="lazy">
-        <div id="container">
-            <b><div id="title">{{ include.title }}</div></b>
-            <div id="text">{{ include.text }}</div>
-        </div>
-    </a>
-</li>
+{% if include.href %}
+<a href="{{ include.href }}" class="ui-card">
+    <img src="{{ include.prefix }}{{ include.src }}" alt="" loading="lazy" />
+    <div class="container">
+        <b><span id="title">{{ include.title }}</span></b><br>
+        <span id="text">{{ include.text }}</span>
+    </div>
+</a>
+{% else %}
+<div class="ui-card">
+    <img src="{{ include.prefix }}{{ include.src }}" alt="" loading="lazy" />
+    <div class="container">
+        <b><span id="title">{{ include.title }}</span></b><br>
+        <span id="text">{{ include.text }}</span>
+    </div>
+</div>
+{%- endif -%}

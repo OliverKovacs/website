@@ -6,13 +6,15 @@
   <body>
     <a id="skip" href="#main"><h2>Skip to main content</h2></a>
 
+    {% if page.title == "Oliver Kovacs" %}
+        <canvas id="canvas" class="background"></canvas>
+    {% endif %}
+
     <div id="overlay">
     {%- include header.html -%}
 
     <main id="main" class="page-content" aria-label="Content">
-      <div class="wrapper">
         {{ content }}
-      </div>
     </main>
 
     {%- include footer.html -%}
