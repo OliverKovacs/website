@@ -1,31 +1,19 @@
 <header>
-    {% if page.title == "Oliver Kovacs" %}
     <h1>
         <img alt="" id="pfp" src="assets/img/projects/pfp.png">
         {{ page.title }}
     </h1>
-    <ul>
+    <nav>
+        <ul>
         {% for element in site.data.contact %}
-            {% capture src %}./assets/img/contact/{{ element.src }}{% endcapture %}
-            {% include ui-contact.html href=element.href src=src %}
+            <li>
+                <a href="{{ element.href }}">
+                    <img src="./assets/img/contact/{{ element.src }}">
+                </a>
+            </li>
         {% endfor %}
-    </ul>
-    <br>
+        </ul>
+    </nav>
     <p>Navigate using <span class="key"> Tab </span></p>
     <p>Rotate using <span class="key">1</span> <span class="key">2</span> <span class="key">3</span></p>
-    {% else %}
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%Y %b %-d" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-      <a href="/">
-        <span itemprop="author" itemscope itemtype="http:/*schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ page.author }}</span>
-        </span>
-      </a>
-      {%- endif -%}</p>
-    {% endif %}
 </header>

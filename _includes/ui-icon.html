@@ -1,11 +1,5 @@
-{% if include.href %}
-<a href="{{ include.href }}" class="ui-icon">
-    <img src="{{ include.prefix }}{{ include.src }}" />
-    <span>{{ include.text }}</span>
-</a>
-{% else %}
-<div class="ui-icon">
-    <img src="{{ include.prefix }}{{ include.src }}" alt="" />
-    <span>{{ include.text }}</span>
-</div>
-{%- endif -%}
+{%-if include.href-%}
+<a href="{{ include.href }}" class="ui-icon"><img src="{{ include.prefix }}{{ include.src }}" />{{-include.text-}}</a>
+{%-else-%}
+<div class="ui-icon"><img src="{{ include.prefix }}{{ include.src }}" />{{include.text}}</div>
+{%-endif-%}

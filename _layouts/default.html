@@ -10,12 +10,12 @@
         <canvas id="canvas" class="background"></canvas>
     {% endif %}
 
-    <div id="overlay">
+    <div class="content">
     {%- include header.html -%}
 
-    <main id="main" class="page-content" aria-label="Content">
-        {{ content }}
-    </main>
+        <main id="main">
+            {{ content }}
+        </main>
 
     {%- include footer.html -%}
     </div>
