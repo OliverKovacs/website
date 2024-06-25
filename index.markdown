@@ -42,6 +42,15 @@ layout: home
 {% endfor %}
 </ul>
 
+## Publications
+<ul>
+{% for post in site.posts %}
+    {% if post.categories contains "publication" %}
+        <li>{% include ui-card.html prefix="" src=post.icon href=post.url title=post.title text=post.text %}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+
 ## Demos
 <ul class="row-list">
 {% for element in site.data.demos %}
