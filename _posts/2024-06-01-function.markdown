@@ -4,7 +4,7 @@ categories: blog
 date:       2024-06-01 00:00:00 +0200
 icon:       "./assets/img/technologies/sagemath.svg"
 layout:     post
-text:       mathematics
+text:       mathematics<br>2024 Jun 1
 title:      "Function connecting points with straight lines"
 ---
 
