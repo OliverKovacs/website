@@ -1,4 +1,6 @@
 <header>
+    <!--{% include color_row.html %}-->
+
     <h1>
         <img alt="" id="pfp" src="assets/img/projects/pfp.png">
         {{ page.title }}
@@ -8,7 +10,9 @@
         {% for element in site.data.contact %}
             <li>
                 <a href="{{ element.href }}">
-                    <img src="./assets/img/contact/{{ element.src }}">
+                    <img src="./assets/img/icons/dark/{{ element.src }}">
+                    <!--<img class="light-mode-hide" src="./assets/img/icons/dark/{{ element.src }}">-->
+                    <!--<img class="dark-mode-hide" src="./assets/img/icons/light/{{ element.src }}">-->
                 </a>
             </li>
         {% endfor %}
