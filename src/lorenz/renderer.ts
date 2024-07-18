@@ -83,7 +83,7 @@ export default class RendererSystem {
         // @ts-ignore
         matrix = Matrix4.scale(matrix, ...this.scale);
                 
-        this.gl.viewport(150, 0, this.gl.canvas.width, this.gl.canvas.height);
+        this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
         this.gl.uniform2f(
             this.uniforms.resolution,
             this.gl.canvas.width,
@@ -91,7 +91,12 @@ export default class RendererSystem {
         );
 
         this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-        this.gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        if (getComputedStyle(document.body).getPropertyValue('background-color') === "rgb(0, 0, 0)") {
+            this.gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        }
+        else {
+            this.gl.clearColor(1.0, 1.0, 1.0, 1.0);
+        }
 
         const size = 4;
         const type = this.gl.FLOAT;
