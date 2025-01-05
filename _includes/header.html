@@ -1,23 +1,17 @@
-<header>
-    <!--{% include color_row.html %}-->
-
-    <h1>
-        <img alt="" id="pfp" src="assets/img/projects/pfp.png">
+<h1>
+    <a href="/">
+        <img alt="logo" id="pfp" src="assets/img/projects/pfp.png">
         {{ page.title }}
-    </h1>
-    <nav>
-        <ul>
-        {% for element in site.data.contact %}
-            <li>
-                <a href="{{ element.href }}">
-                    <img src="./assets/img/icons/dark/{{ element.src }}">
-                    <!--<img class="light-mode-hide" src="./assets/img/icons/dark/{{ element.src }}">-->
-                    <!--<img class="dark-mode-hide" src="./assets/img/icons/light/{{ element.src }}">-->
-                </a>
-            </li>
-        {% endfor %}
-        </ul>
-    </nav>
-    <p>Navigate using <span class="key"> Tab </span></p>
-    <p>Rotate using <span class="key">1</span> <span class="key">2</span> <span class="key">3</span></p>
-</header>
+    </a>
+</h1>
+<nav class="contacts">
+    <ul>
+    {% for element in site.data.contact %}
+        <li>
+            <a href="{{ element.href }}">
+                <img src="./assets/img/icons/dark/{{ element.src }}">
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</nav>

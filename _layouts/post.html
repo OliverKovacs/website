@@ -1,39 +1,44 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+---
+layout: default
+---
 
-  {%- include head.html -%}
+<div class="content">
+    <header>
+        {% include color_row.html %}
 
-  <body>
-    <a id="skip" href="#main"><h2>Skip to main content</h2></a>
+        <h1>{{ page.title | escape }}</h1>
+        <nav>
+        <table style="width: 100%;"><tr>
+            <td><time datetime="{{ page.date | date_to_xmlschema }}">
+                {%- assign date_format = site.minima.date_format | default: "%Y %b %-d" -%}
+                {{ page.date | date: date_format }}
+            </time></td>
+            <td><a id="author" href="/">
+                {{ page.author }}
+            </a></td>
+            </tr></table>
+        </nav>
+    </header>
 
-    <div class="content">
-        <header>
-            {% include color_row.html %}
+    <main id="main">
+        <article>
+            {% include anchor_headings.html html=content anchorBody="#" %}
+        </article>
+    </main>
 
-            <h1>{{ page.title | escape }}</h1>
-            <div id="home-row">
-                <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                  {%- assign date_format = site.minima.date_format | default: "%Y %b %-d" -%}
-                  {{ page.date | date: date_format }}
-                </time>
-                <div>
-                <a id="home" href="/">
-                    <div>{{ page.author }}</div>
-                    <!--<span itemprop="author" itemscope itemtype="http:/*schema.org/Person">
-                      <span class="p-author h-card" itemprop="name"></span>
-                  </span>-->
-                </a>
-                </div>
-            </div>
-        </header>
+    <footer>
+        <table style="width: 100%;"><tr>
+            {% if page.previous.url %}
+            <td><a class="prev" href="{{page.previous.url}}">
+                Previous: {{page.previous.title}}
+            </a></td>
+            {% endif %}
 
-        <main id="main">
-            <article class="post h-entry" itemscope itemtype="http:/*schema.org/BlogPosting">
-                {% include anchor_headings.html html=content anchorBody="#" %}
-            </article>
-        </main>
-    </div>
-
-  </body>
-
-</html>
+            {% if page.next.url %}
+            <td><a class="next" href="{{page.next.url}}">
+                Next: {{page.next.title}}
+            </a></td>
+            {% endif %}
+        </tr></table>
+    </footer>
+</div>

@@ -11,7 +11,7 @@ title:      "Clandestine VPN split tunneling"
 ## Overview
 
 This post details how to use a virtual private network (VPN) running on a separate (virtual) machine.
-This allows you to "pre-filter" the network traffic, effectively split tunneling using a full-tunnel VPN connection.
+This allows us to "pre-filter" the network traffic, effectively split tunneling using a full-tunnel VPN connection.
 
 Some possible use cases include:
 - You are required to use a full tunnel VPN connection but you don't want to send all of your traffic through the VPN for privacy or performance reasons.

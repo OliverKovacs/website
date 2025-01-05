@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="/assets/css/vars.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 
-    <!-- is a post -->
     {% if page.id %}
+        <!-- is a post -->
         <link rel="stylesheet" href="/assets/css/post.css">
         <link rel="stylesheet" href="/assets/css/code.css">
 
@@ -19,7 +19,10 @@
         <script defer src="/assets/lib/katex/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"></script>
         <script defer src="/assets/lib/katex/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" onload="renderMathInElement(document.body);"></script>
     {% else %}
-        <link rel="stylesheet" href="/assets/css/home.css">
-        <script defer src="/assets/js/main.js" type="module"></script>
+        {% if page.title == 'Oliver Kovacs' %}
+            <!-- is home -->
+            <link rel="stylesheet" href="/assets/css/home.css">
+            <script defer src="/assets/js/main.js" type="module"></script>
+        {% endif %}
     {% endif %}
 </head>

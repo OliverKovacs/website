@@ -58,9 +58,6 @@ layout: home
 {% endfor %}
 </ul>
 
-## Music
-<ul>
-{% for element in site.data.music %}
-    <li>{% include ui-card-obj.html prefix="./assets/img/music/" element=element %}</li>
-{% endfor %}
-</ul>
+## <a id="show" href="./photos">Photos</a>
+
+## <a id="show" href="./music">Music</a>
