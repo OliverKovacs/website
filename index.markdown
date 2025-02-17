@@ -58,6 +58,6 @@ layout: home
 {% endfor %}
 </ul>
 
-## <a id="show" href="./photos">Photos</a>
+## <a href="./photos">Photos</a>
 
-## <a id="show" href="./music">Music</a>
+## <a href="./music">Music</a>
