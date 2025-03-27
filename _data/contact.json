@@ -2,11 +2,11 @@
     { "src": "github.svg", "href": "https://github.com/OliverKovacs" },
     { "src": "gmail.svg", "href": "mailto:oliver@oliverkovacs.dev" },
     { "src": "matrix.svg", "href": "https://matrix.to/#/@dnydxn:matrix.org" },
+    { "src": "bluesky.svg", "href": "https://bsky.app/profile/oliverkovacs.dev" },
     { "src": "youtube.svg", "href": "https://www.youtube.com/@dnydxn" },
     { "src": "linkedin.svg", "href": "https://www.linkedin.com/in/oliver-k-a57129201" },
     { "src": "medium.svg", "href": "https://oliverkovacs.medium.com/" },
     { "src": "spotify.svg", "href": "https://open.spotify.com/user/oliverkovacs" },
     { "src": "discord.svg", "href": "/html/discord.html" },
-    { "src": "twitter.svg", "href": "https://twitter.com/oliverkovacsdev" },
     { "src": "rss.svg", "href": "./feed.xml" }
 ]
