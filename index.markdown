@@ -3,6 +3,14 @@ title: Oliver Kovacs
 layout: home
 ---
 
+## About
+
+I'm a computer science student at ETH Zürich, software engineer, and hacker.
+Also known as dnydxn.
+You can find my
+<a href="/assets/pdf/Oliver_Kovacs-CV-public-en.pdf" target="_blank">CV here</a>.
+
+<!--
 ## Languages
 <ul>
 {% for element in site.data.languages %}
@@ -16,6 +24,7 @@ layout: home
     <li>{% include ui-icon-obj.html prefix="./assets/img/technologies/" element=element %}</li>
 {% endfor %}
 </ul>
+-->
 
 ## Blog
 <ul>
@@ -51,12 +60,13 @@ layout: home
 {% endfor %}
 </ul>
 
-## Demos
+## <a href="./demos">Demos</a>
+<!--## Demos
 <ul class="row-list">
 {% for element in site.data.demos %}
     <li>{% include ui-card-obj.html prefix="./assets/img/" element=element %}</li>
 {% endfor %}
-</ul>
+</ul>-->
 
 ## <a href="./photos">Photos</a>
 
