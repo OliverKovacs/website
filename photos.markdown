@@ -5,6 +5,8 @@ layout: other
 
 <main>
     <br>
+    Some photos I made.
+    <br>
     <br>
     <br>
     {% for element in site.data.photos %}
