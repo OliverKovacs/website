@@ -1,10 +1,12 @@
 [
+    { "date": "2025-06-24", "location": "Bezau" },
+    { "date": "2025-06-04", "location": "Richterswil" },
     { "date": "2024-12-23", "location": "Walenstadt" },
     { "date": "2024-11-15", "location": "Zürich" },
     { "date": "2024-11-03", "location": "Zürich" },
     { "date": "2024-10-13", "location": "Zürich" },
     { "date": "2024-09-19", "location": "Switzerland" },
-    { "date": "2024-08-12", "location": "Steyr" },
+    # { "date": "2024-08-12", "location": "Steyr" },
     { "date": "2024-07-23", "location": "Vienna" },
     { "date": "2023-05-23", "location": "Raach am Hochgebirge" },
     { "date": "2022-07-19", "location": "Salzburg" },
@@ -14,7 +16,7 @@
     { "date": "2022-03-30", "location": "Obertraun" },
     { "date": "2022-01-30", "location": "Steyr" },
     { "date": "2022-01-09", "location": "Garsten" },
-    { "date": "2021-05-09", "location": "Damberg" },
+    # { "date": "2021-05-09", "location": "Damberg" },
     { "date": "2021-02-03", "location": "Steyr" },
     { "date": "2021-01-10", "location": "Damberg" },
     { "date": "2020-12-04", "location": "Steyr" },
@@ -23,5 +25,5 @@
     { "date": "2020-10-20", "location": "Steyr" },
     { "date": "2020-09-16", "location": "Steyr" },
     { "date": "2020-02-12", "location": "Kefermarkt" },
-    { "date": "2019-08-14", "location": "Raab" }
+    # { "date": "2019-08-14", "location": "Raab" }
 ]

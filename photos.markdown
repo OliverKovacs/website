@@ -5,7 +5,7 @@ layout: other
 
 <main>
     <br>
-    Some photos I made.
+    Some photos I took.
     <br>
     <br>
     <br>

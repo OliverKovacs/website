@@ -42,6 +42,9 @@ exclude:
     - src/*
     - .gtignore
     - tsconfig.json
+    - default.nix
+    - gemset.nix
+    - setup.sh
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
