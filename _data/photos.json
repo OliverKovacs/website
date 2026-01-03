@@ -1,4 +1,5 @@
 [
+    { "date": "2025-12-30", "location": "Altaussee" },
     { "date": "2025-09-08", "location": "Altaussee" },
     { "date": "2025-09-03", "location": "Salzburg" },
     { "date": "2025-09-02", "location": "Salzburg" },
@@ -22,7 +23,7 @@
     # { "date": "2021-05-09", "location": "Damberg" },
     { "date": "2021-02-03", "location": "Steyr" },
     { "date": "2021-01-10", "location": "Damberg" },
-    { "date": "2020-12-04", "location": "Steyr" },
+    # { "date": "2020-12-04", "location": "Steyr" },
     { "date": "2020-11-07", "location": "Steyr" },
     { "date": "2020-11-03", "location": "Steyr" },
     { "date": "2020-10-20", "location": "Steyr" },
