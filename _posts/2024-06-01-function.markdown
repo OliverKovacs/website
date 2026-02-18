@@ -10,6 +10,12 @@ title:      "Function connecting points with straight lines"
 
 <!--How to find a function that connects a list of points with straight line segments.-->
 
+> Note: This was originally published on Medium on Mar 31, 2021.
+I have since since taken a numerics lecture and come to know that this is called
+"piecewise linear interpolation".
+I have also learned that solving such a linear system of equations might give awful
+precision unless you represent your numbers as rationals.
+
 ## Problem
 
 Given a list of $$n$$ Points $$\bold P = (P_1, P_2, …, P_n)$$ where $$P_i = (P_{i,x}, P_{i,y})$$ ordered along the $$x$$-axis, what function $$f(x)$$, when graphed, connects the points in the domain $$[P_{1,x}; P_{n,x}]$$ with straight lines?
