@@ -26,7 +26,7 @@ Attachments: `anti-rev`
 import angr
 
 project = angr.Project("anti-rev", auto_load_libs=True)
-simgr = project.factory.simulation_manager(p.factory.full_init_state())
+simgr = project.factory.simulation_manager(project.factory.full_init_state())
 simgr.explore(find=0x401def, avoid=0x401df8)
 print(simgr.found[0].posix.dumps(0))
 ```
