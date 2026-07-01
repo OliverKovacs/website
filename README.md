@@ -1,6 +1,6 @@
 # website
 
-My personal Website
+My personal Website.
 Currently also repo for my website generator written in Nix and heavily inspired by Jekyll.
 
 ## Build
@@ -18,3 +18,4 @@ sudo make build
 - custom ignore lists
 - license
 - filter post in future
+- out readme
