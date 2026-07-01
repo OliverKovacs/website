@@ -1,10 +1,10 @@
 ---
 author:     Oliver Kovacs
-categories: blog
-date:       2024-07-05 00:00:00 +0200
+category:   blog
+date:       2024-07-05T00:00:00+02:00
 icon:       "./assets/img/technologies/openvpn.svg"
 layout:     post
-text:       networking, linux<br>2024 Jul 5
+tags:       networking, linux
 title:      "Clandestine VPN split tunneling"
 ---
 

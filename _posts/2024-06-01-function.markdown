@@ -1,10 +1,10 @@
 ---
 author:     Oliver Kovacs
-categories: blog
-date:       2024-06-01 00:00:00 +0200
+category:   blog
+date:       2024-06-01T00:00:00+02:00
 icon:       "./assets/img/technologies/sagemath.svg"
 layout:     post
-text:       mathematics<br>2024 Jun 1
+tags:       mathematics
 title:      "Function connecting points with straight lines"
 ---
 

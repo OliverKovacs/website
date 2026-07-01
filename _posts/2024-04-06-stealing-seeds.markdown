@@ -2,8 +2,8 @@
 author: "Oliver Kovacs"
 layout: post
 title:  "Stealing Seeds"
-date:   2024-04-06 00:00:00 +0200
-categories: writeup
+date:   2024-04-06T00:00:00+02:00
+category: writeup
 icon:   "./assets/img/languages/python.svg"
 text:   "openECSC 2024<br>crypto"
 ---

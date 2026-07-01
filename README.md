@@ -1,31 +1,20 @@
-# My personal Website
+# website
 
-## Dev
-```
-./setup.sh
-nix-shell
-jekyll serve
-```
+My personal Website
+Currently also repo for my website generator written in Nix and heavily inspired by Jekyll.
 
 ## Build
-
-```
-git submodule update --init --recursive
-npx tsc
-./setup.sh
-nix-shell
-jekyll build
+```sh
+sudo make build
 ```
 
 ## Todo
-- Improve writeup layout/design
-- Improve hover effect
-- Merge stylesheets
-- Add now
-- Adjust blockquote
-- Improve image loading
-- Add code copy
-- Improve non-link focus
-- Improve multiple lines in cards
-- Improve CSS
-- Improve theme switch focus
+- look into permissions
+- make derivs for .html.nix files?
+- split out date code
+- split out path code
+- maybe remove meta indirection/rename to page?
+- submodules
+- custom ignore lists
+- license
+- filter post in future

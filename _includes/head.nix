@@ -1,0 +1,39 @@
+({ page, ... }:
+''
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--{%- seo -%}
+    {%- feed_meta -%}-->
+
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="/assets/css/vars.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    ${
+        if builtins.hasAttr "id" page then
+            ''
+            <!-- is a post -->
+            <link rel="stylesheet" href="/assets/css/post.css">
+            <link rel="stylesheet" href="/assets/css/code.css">
+
+            <!-- KaTeX -->
+            <link rel="stylesheet" href="/assets/lib/katex/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww">
+            <script defer src="/assets/lib/katex/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"></script>
+            <script defer src="/assets/lib/katex/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" onload="renderMathInElement(document.body);"></script>
+            ''
+        else
+            if page.title == "Oliver Kovacs" then
+                ''
+                <!-- is home -->
+                <link rel="stylesheet" href="/assets/css/home.css">
+                <script defer src="/assets/js/main.js" type="module"></script>
+                ''
+            else
+                ''
+                <link rel="stylesheet" href="/assets/css/home.css">
+                ''
+    }
+</head>
+'')

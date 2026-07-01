@@ -1,10 +1,10 @@
 ---
 author:     Oliver Kovacs
-categories: blog
-date:       2025-05-02 00:00:00 +0200
+category: blog
+date:       2025-05-02T00:00:00+02:00
 icon:       "./assets/img/technologies/nix.svg"
 layout:     post
-text:       linux, nix<br>2025 May 2
+tags:       linux, nix
 title:      "Installing Vivado on NixOS"
 ---
 

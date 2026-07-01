@@ -1,7 +1,7 @@
 [
-    { "src": "/technologies/vulkan.svg", "title": "vulkan-xd", "text": "N-d rendering<br>C++, Vulkan", "href": "https://github.com/OliverKovacs/vulkan-xd" },
-    { "src": "/technologies/webgl.svg", "title": "lorenz-webgl", "text": "Lorenz attractor<br>WebGL, Chrome", "href": "https://github.com/OliverKovacs/lorenz-webgl" },
-    { "src": "/technologies/webgl.svg", "title": "mandelbrot-webgl", "text": "Fractal visualizer<br>JavaScript, WebGL", "href": "https://github.com/OliverKovacs/mandelbrot-webgl" },
-    { "src": "/technologies/dialogflow.svg", "title": "Wilson", "text": "Diagnostic chatbot<br>DialogFlow, ICD", "href": "https://github.com/hiubok/wilson" },
-    { "src": "/languages/c.svg", "title": "sfs", "text": "Simple file system<br>C, FUSE", "href": "https://github.com/OliverKovacs/sfs" }
+    { "src": "./assets/img/technologies/vulkan.svg", "title": "vulkan-xd", "text": "N-d rendering<br>C++, Vulkan", "href": "https://github.com/OliverKovacs/vulkan-xd" },
+    { "src": "./assets/img/technologies/webgl.svg", "title": "lorenz-webgl", "text": "Lorenz attractor<br>WebGL, Chrome", "href": "https://github.com/OliverKovacs/lorenz-webgl" },
+    { "src": "./assets/img/technologies/webgl.svg", "title": "mandelbrot-webgl", "text": "Fractal visualizer<br>JavaScript, WebGL", "href": "https://github.com/OliverKovacs/mandelbrot-webgl" },
+    { "src": "./assets/img/technologies/dialogflow.svg", "title": "Wilson", "text": "Diagnostic chatbot<br>DialogFlow, ICD", "href": "https://github.com/hiubok/wilson" },
+    { "src": "./assets/img/languages/c.svg", "title": "sfs", "text": "Simple file system<br>C, FUSE", "href": "https://github.com/OliverKovacs/sfs" }
 ]

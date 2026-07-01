@@ -1,6 +1,5 @@
----
-permalink: /404.html
----
+{ ... }:
+''
 <!DOCTYPE html>
 <html>
     <title>404</title>
@@ -39,3 +38,4 @@ permalink: /404.html
         </div>
     </body>
 </html>
+''

@@ -1,3 +1,5 @@
+{ ... }:
+''
 <div id="color-row">
     <div>
         <img class="light-mode-hide" src="/assets/img/icons/dark/light_mode.svg" alt="Light mode" />
@@ -10,3 +12,4 @@
         <img class="dark-mode-hide" src="/assets/img/icons/light/dark_mode.svg" alt="Dark mode" />
     </div>
 </div>
+''
