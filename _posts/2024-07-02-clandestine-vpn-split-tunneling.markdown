@@ -14,6 +14,7 @@ This post details how to use a virtual private network (VPN) running on a separa
 This allows us to "pre-filter" the network traffic, effectively split tunneling using a full-tunnel VPN connection.
 
 Some possible use cases include:
+
 - You are required to use a full tunnel VPN connection but you don't want to send all of your traffic through the VPN for privacy or performance reasons.
 - You want to connect a machine to multiple VPNs simultaneously.
 - You want to connect multiple machines to a VPN simultaneously.
@@ -35,6 +36,7 @@ This post will assume you are running a KVM VM on a Linux host but it should be 
 
 Inspect the network interfaces of the machines using `ip addr` or `ifconfig`.
 There are 3 interfaces of interest:
+
 - On the host:
     - interface to the LAN: 
         - `wlp1s0` or similar if connected to wifi
@@ -70,6 +72,7 @@ Linux uses a routing table to determine where to send packets.
 The routing table can be consulted using the `route` command.
 
 Therefore:
+
 1. The routing table of the host has to be modified so that it sends packets meant for the VPN to the VM.
 1. The VM has to be adjusted so that it forwards these packets received from the host to the VPN.
 
@@ -99,23 +102,24 @@ There are two ways to set up the host:
 
 This is simpler if you only need to access a few resources.
 If there is a website called `site.example` that you need to access:
+
 1. Look up the IP address of `site.example` using `dig` or `nslookup`. Let's assume it is `10.10.10.10`.
 1. Add an entry to your `/etc/hosts` file:
-```sh
-# /etc/hosts
-10.10.10.10     site.example
-```
+   ```sh
+   # /etc/hosts
+   10.10.10.10     site.example
+   ```
 1. Find the IP address of the `enp1s0` network interface of the VM.
-It must be on the same subnet as the `virbr0` interface of the host.
-Let's assume it is `192.168.100.100`.
+   It must be on the same subnet as the `virbr0` interface of the host.
+   Let's assume it is `192.168.100.100`.
 1. Add an entry to the routing table of the host specifying that packets bound for the IP of the website should use the VM as the gateway.
-```bash
-route add 10.10.10.10/32 gw 192.168.100.100 metric 200 dev virbr0
-```
+   ```bash
+   route add 10.10.10.10/32 gw 192.168.100.100 metric 200 dev virbr0
+   ```
 1. You should be able to access the website.
-```bash
-curl site.example
-```
+   ```bash
+   curl site.example
+   ```
 
 ### DNS
 
@@ -214,6 +218,7 @@ All of the commands are non-persistent.
 If you want them to survive a reboot you have to create a startup script running them on boot.
 
 Ideally you want
+
 - a startup script on the host setting up the routing table and starting the VM, and
 - a startup script on the VM starting the VPN and adjusting the firewall.
 
@@ -222,6 +227,7 @@ The specifics will highly depend on your setup and use case.
 ## Conclusion
 
 Notice how you can use these techniques to
+
 - split tunnel before a full tunnel VPN,
 - share a VPN connection with multiple computers or
 - use multiple VPNs simultaneously

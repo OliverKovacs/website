@@ -69,7 +69,7 @@ in rec {
 ${ markdown }
 EOF
                 mkdir -p $out
-                pandoc "input.md" -f markdown -t html -o $out/output.html
+                pandoc "input.md" -f markdown -t html --katex -o $out/output.html
             '';
         };
         htmlDrv = let

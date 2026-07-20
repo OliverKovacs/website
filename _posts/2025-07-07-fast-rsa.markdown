@@ -25,15 +25,15 @@ Attachments: [
 
 ## Problem
 
-The program generates an RSA keypair and outputs the modulus $$n$$
-and the uppermost 32 bits of $$d$$.
+The program generates an RSA keypair and outputs the modulus $\(n\)$
+and the uppermost 32 bits of $\(d\)$.
 
-It then repeatedly reads $$m, b \in \mathbb Z$$ and calculates the signature $$s = m^d \mod n$$.
+It then repeatedly reads $\(m, b \in \mathbb Z\)$ and calculates the signature $\(s = m^d \mod n\)$.
 This is done in [Montgomery](https://en.wikipedia.org/wiki/Montgomery_modular_multiplication) form.
-Then $$s$$ and whether any of the two multiplications in the $$b$$th step of exponentiation
+Then $\(s\)$ and whether any of the two multiplications in the $\(b\)$th step of exponentiation
 required the conditional subtraction is revealed.
 
-The goal is to determine $$d$$.
+The goal is to determine $\(d\)$.
 
 ## Solution
 
@@ -47,7 +47,7 @@ subtractions were needed, i. e. the observation vector is "squashed".
 The solution is simple: the algorithm has to be run on multiple
 squashed observation vectors simultaneously.
 In practice 2 are enough.
-The algorithm calculates $$d$$ in ~1 s,
+The algorithm calculates $\(d\)$ in ~1 s,
 however getting the observation vectors from the remote takes considerably more time.
 
 ## Implementation
