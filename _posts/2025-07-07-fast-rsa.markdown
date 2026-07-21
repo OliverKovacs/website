@@ -19,9 +19,7 @@ Hey choom! I got my hands on some fresh new hardware, a chip that can do militar
 
 I'm testing out it's signature features, and since you're a god-tier netrunner, maybe you can learn how to sign stuff yourself if you watch my bot do it enough?
 ```
-Attachments: [
-<a href="/assets/zip/fast-rsa.zip">fast-rsa.zip</a>
-]
+Attachments: [ <a href="/assets/zip/fast-rsa.zip">fast-rsa.zip</a> ]
 
 ## Problem
 

@@ -8,10 +8,8 @@ text:       pre-scientific thesis<br>2023
 title:      "GPU-accelerated real-time rendering of n-dimensional objects"
 ---
 
-[
-<a href="/assets/pdf/Oliver_Kovacs-VWA.pdf" target="_blank">pdf</a>,
-<a href="/assets/pdf/Oliver_Kovacs-VWA-Errata.pdf" target="_blank">errata</a>
-]
+[ <a href="/assets/pdf/Oliver_Kovacs-VWA.pdf" target="_blank"><tt>pdf</tt></a>,
+<a href="/assets/pdf/Oliver_Kovacs-VWA-Errata.pdf" target="_blank"><tt>errata</tt></a> ]
 
 My pre-scientific thesis (VWA), submitted in 2023.
 

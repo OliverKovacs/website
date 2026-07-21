@@ -35,16 +35,17 @@ rec {
     in ''${y} ${m} ${d}'';
 
     toAscii = builtins.replaceStrings
-        [ "ä" "Ä" "ö" "Ö" "ü" "Ü" "ß"]
-        [ "ae" "AE" "oe" "OE" "u" "UE" "ss"];
+        [ "ä" "Ä" "ö" "Ö" "ü" "Ü" "ß" "é" "á"]
+        [ "ae" "AE" "oe" "OE" "u" "UE" "ss" "e" "a"];
 
+    # TODO fix this
     toSlug = str:
         let
             slugged = builtins.replaceStrings
-                [ " " "_" "." "," "!" "?" "'" "\"" ]
-                [ "-" "-" "-" "-" "-" "-" "-" "-" ]
+                [ " " "_" "." "," "!" "?" "'" "\"" "[" "]" "(" ")"]
+                [ "-" "-" "-" "-" "-" "-" "-" "-"  "" "" "" ""]
                 str;
-            cleaned = builtins.replaceStrings [ "--" ] [ "-" ] slugged;
+            cleaned = builtins.replaceStrings [ "---" "--" ] [ "-" "-" ] slugged;
         in cleaned;
 
     stripQuotes = str: let

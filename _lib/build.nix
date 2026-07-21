@@ -69,7 +69,7 @@ in rec {
 ${ markdown }
 EOF
                 mkdir -p $out
-                pandoc "input.md" -f markdown -t html --katex -o $out/output.html
+                pandoc "input.md" -f markdown -t html --katex -o "$out/output.html"
             '';
         };
         htmlDrv = let
@@ -78,8 +78,8 @@ EOF
             name = "html-${ meta.id }";
             dontUnpack = true;
             buildPhase = ''
-                mkdir -p $out
-                cat > $out/output.html <<'EOF'
+                mkdir -p "$out"
+                cat > "$out/output.html" <<'EOF'
 ${ help.post meta input }
 EOF
             '';
@@ -104,8 +104,8 @@ EOF
         drvs = builtins.map (derivePost pkgs) posts;
     in help.map
         ({ meta, file, ... }: ''
-            mkdir -p out/${ meta.par }
-            cp ${ file } out/${ meta.path }
+            mkdir -p "out/${ meta.par }"
+            cp ${ file } "out/${ meta.path }"
         '')
         drvs;
 

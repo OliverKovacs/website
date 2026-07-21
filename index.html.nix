@@ -75,6 +75,23 @@ ${
 }
 </ul>
 
+<h2 id="tabs">
+    Tabs <a href="#tabs">#</a>
+</h2>
+<ul>
+${
+    help.map
+        ({ meta, ... }:
+            ''<li>${ includes.uiCard {
+                title = meta.title;
+                text = meta.text;
+                src = meta.icon;
+                href = meta.path;
+            } }</li>'')
+        (builtins.filter (help.inCategory "tab") posts)
+}
+</ul>
+
 <h2 id="demos">
     <a href="./demos.html">Demos</a> <a href="#demos">#</a>
 </h2>
