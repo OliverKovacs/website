@@ -5,9 +5,9 @@
     { "src": "./assets/img/music/pink_floyd-the_wall.jpg", "title": "Pink Floyd", "text": "The Wall<br>1979" },
     { "src": "./assets/img/music/joy_division-unknown_pleasures.png", "title": "Joy Division", "text": "Unknown Pleasures<br>1979" },
     { "src": "./assets/img/music/new_order-substance.jpg", "title": "New Order", "text": "Substance<br>1987" },
-    { "src": "./assets/img/music/alt_j-an_awsome_wave.jpg", "title": "Alt-J", "text": "An Awseome Wave<br>2012" },
+    { "src": "./assets/img/music/alt_j-an_awesome_wave.jpg", "title": "Alt-J", "text": "An Awesome Wave<br>2012" },
+    { "src": "./assets/img/music/portishead-dummy.png", "title": "Portishead", "text": "Dummy<br>1994" },
     { "src": "./assets/img/music/daft_punk-random_access_memories.jpg", "title": "Daft Punk", "text": "Random Access Memories<br>2013" },
-    { "src": "./assets/img/music/the_cure-disintegration.jpg", "title": "The Cure", "text": "Disintegration<br>1989" },
     { "src": "./assets/img/music/warpaint-the_fool.jpg", "title": "Warpaint", "text": "The Fool<br>2010" },
     { "src": "./assets/img/music/chromatics-kill_for_love.jpg", "title": "Chromatics", "text": "Kill for Love<br>2012" },
     { "src": "./assets/img/music/solstafir-berdreyminn.jpg", "title": "Sólstafir", "text": "Berdreyminn<br>2017" }

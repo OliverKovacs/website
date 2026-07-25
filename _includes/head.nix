@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 
     ${
+        # TODO this is very ugly and should be fixed
         if builtins.hasAttr "id" page then
             ''
             <!-- is a post -->

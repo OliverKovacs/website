@@ -100,6 +100,10 @@ ${
     <a href="./photos.html">Photos</a> <a href="#photos">#</a>
 </h2>
 
+<h2 id="reading">
+    <a href="./reading.html">Reading</a> <a href="#reading">#</a>
+</h2>
+
 <h2 id="music">
     <a href="./music.html">Music</a> <a href="#music">#</a>
 </h2>
