@@ -9,7 +9,8 @@ layouts.withPage.home page ''
     About <a href="#about">#</a>
 </h2>
 
-<p>I’m a computer science student at ETH Zürich, software engineer, and hacker.
+<p>I’m a computer science student and teaching assistant
+for theoretical computer science at ETH Zürich, software engineer, and hacker.<br>
 Also known as dnydxn.
 You can find my
 <a href="/assets/pdf/Oliver_Kovacs-CV-public-en.pdf" target="_blank">CV here</a>.</p>
