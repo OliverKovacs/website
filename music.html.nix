@@ -2,6 +2,7 @@
 let
     page = {
         title = "Music";
+        id = "music";
     };
 in
 layouts.withPage.other page ''
@@ -11,10 +12,10 @@ List of some music I like.
 
 <br>
 <br>
-<br>
+
 <!-- TODO fix -->
 
-<ul id="music">
+<ul id="music" class="card-list">
 ${
     help.map
         (el: ''<li>${ includes.uiCard el }</li>'')

@@ -1,18 +1,21 @@
 { layouts, includes, content, ... }:
 layouts.default
 ''
+<canvas id="canvas" class="background"></canvas>
+
 <div class="content">
     <header>
-        ${ includes.header }
-        <!--<p>Navigate using <span class="key"> Tab </span></p>-->
-        <!--<p>Rotate using <span class="key">1</span> <span class="key">2</span> <span class="key">3</span></p>-->
+        ${ includes.title }
+        ${ includes.contacts true }
     </header>
 
-    <main id="main" class="home">
+    <main class="home">
         ${ content }
-        <!--{% include anchor_headings.html html=content anchorBody="#" %}-->
     </main>
 
-    ${ includes.footer }
+    <footer class="home dark">
+        ${ includes.info }
+        ${ includes.polyring }
+    </footer>
 </div>
 ''

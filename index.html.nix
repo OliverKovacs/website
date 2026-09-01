@@ -2,6 +2,7 @@
 let
     page = {
         title = "Oliver Kovacs";
+        home = true;
     };
 in
 layouts.withPage.home page ''
@@ -18,7 +19,7 @@ You can find my
 <h2 id="blog">
     Blog <a href="#blog">#</a>
 </h2>
-<ul>
+<ul class="dark">
 ${
     help.map
         ({ meta, ... }:
@@ -35,7 +36,7 @@ ${
 <h2 id="writeups">
     Writeups <a href="#writeups">#</a>
 </h2>
-<ul>
+<ul class="dark">
 ${
     help.map
         ({ meta, ... }:
@@ -52,7 +53,7 @@ ${
 <h2 id="projects">
     Projects <a href="#projects">#</a>
 </h2>
-<ul>
+<ul class="dark">
 ${
     help.map
         (el: ''<li>${ includes.uiCard el }</li>'')
@@ -62,7 +63,7 @@ ${
 <h2 id="publications">
     Publications <a href="#publications">#</a>
 </h2>
-<ul>
+<ul class="dark">
 ${
     help.map
         ({ meta, ... }:
@@ -79,7 +80,7 @@ ${
 <h2 id="tabs">
     Tabs <a href="#tabs">#</a>
 </h2>
-<ul>
+<ul class="dark">
 ${
     help.map
         ({ meta, ... }:

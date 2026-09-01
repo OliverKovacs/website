@@ -7,7 +7,7 @@ in
 layouts.withPage.other page ''
 <br>
 
-<ul class="row-list">
+<ul id="demos" class="card-list">
 ${
     help.map
         (el: ''<li>${ includes.uiCard el }</li>'')

@@ -2,10 +2,12 @@
 layouts.default ''
 <div class="content">
     <header>
-        ${ includes.header }
+        ${ includes.colorRow }
+        ${ includes.title }
+        ${ includes.contacts false }
     </header>
 
-    <main id="main" class="home">
+    <main>
         ${ content }
     </main>
 </div>

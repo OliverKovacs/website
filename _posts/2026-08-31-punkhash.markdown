@@ -182,7 +182,7 @@ def solve_centered(p, n, b, v, c):
     # construct M_prime
     w = 2 ** ((n // 2) + 5) * b
     delta = b // 2
-    c_prime = (c - delta * sum(v))
+    c_prime = c - delta * sum(v)
     M_prime = Matrix(ZZ, n + 2, n + 2)
     for i in range(n):
         M_prime[i,i]   = 1

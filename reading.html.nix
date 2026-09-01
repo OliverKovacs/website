@@ -46,7 +46,7 @@ Peter Handke - Wunschloses Unglück
 W. G. Sebald - Schwindel. Gefühle.
 W. G. Sebald - Austerlitz'';
 in
-layouts.withPage.post2 page ''
+layouts.withPage.other page ''
 <br>
 
 Some books I enjoyed reading.

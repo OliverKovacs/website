@@ -55,11 +55,39 @@ in rec {
         (fun.test ".*\\.json$")
         (readAll path);
 
-
-
-
-
     derivePost = pkgs: { meta, markdown }@post: let
+        headingAnchors = ''
+            function Header(header)
+              local id = header.identifier
+
+              if id == "" then
+                return header
+              end
+
+              table.insert(header.content, pandoc.Space())
+              table.insert(
+                header.content,
+                pandoc.Link(
+                  { pandoc.Str("#") },
+                  "#" .. id
+                )
+              )
+
+              return header
+            end
+        '';
+        luaDrv = pkgs.stdenvNoCC.mkDerivation {
+            name = "lua";
+            nativeBuildInputs = [];
+            dontUnpack = true;
+            buildPhase = ''
+                mkdir -p $out
+                cat > "$out/heading-anchors.lua" <<'EOF'
+${ headingAnchors }
+EOF
+            '';
+        };
+
         pandocDrv = pkgs.stdenvNoCC.mkDerivation {
             name = "pandoc-${ meta.id }";
             nativeBuildInputs = [ pkgs.pandoc ];
@@ -69,7 +97,7 @@ in rec {
 ${ markdown }
 EOF
                 mkdir -p $out
-                pandoc "input.md" -f markdown -t html --katex -o "$out/output.html"
+                pandoc "input.md" -f markdown -t html --katex --lua-filter=${ luaDrv }/heading-anchors.lua -o "$out/output.html"
             '';
         };
         htmlDrv = let
@@ -185,7 +213,10 @@ EOF
         // { withPage = importLayouts path; };
 
     mkInclude = f: f site;
-    mkIncludeWithPage = page: f: f (site // { page = page; });
+    mkIncludeWithPage = page: f: f (site // {
+        page = page;
+        includes = importMap (mkIncludeWithPage page) site.config.path.includes;
+    });
 
     mkLayout = f: page: content: f ((site // {
         includes = importMap (mkIncludeWithPage page) site.config.path.includes;
