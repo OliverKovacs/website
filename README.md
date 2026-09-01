@@ -9,8 +9,6 @@ sudo make build
 ```
 
 ## Todo
-- fix head css inclusion logic
-- move photos to post2 layout
 - look into permissions
 - make derivs for .html.nix files?
 - split out date code

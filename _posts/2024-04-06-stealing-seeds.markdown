@@ -231,7 +231,7 @@ Visualisation of the $\(p_s(u)\)$ table obtained by coloring $\(-1\)$ white.
 
 <figure>
     <img src="/assets/img/posts/vis.png" alt="Graph"/>
-    <figcaption>Visualisation of the \(p_s(u)\) table obtained by coloring \(-1\) white.</figcaption>
+    <figcaption>Visualisation of the $\(p_s(u)\)$ table obtained by coloring $\(-1\)$ white.</figcaption>
 </figure>
 
 `solve.py`
