@@ -5,8 +5,6 @@ let
     };
 in
 layouts.withPage.other page ''
-<br>
-
 <ul id="demos" class="card-list">
 ${
     help.map

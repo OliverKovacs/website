@@ -9,6 +9,9 @@ let
     heading = year: ''<h3 id="${ year }">${ year }</h3>'';
     list = builtins.replaceStrings [ "\n" ] [ "<br>\n" ];
     l2026 = ''
+Ludwig Wittgenstein - Philosophische Untersuchungen
+Elfriede Jelinek - Die Liebhaberinnen
+Thomas Bernhard - Auslöschung
 Hermann Hesse - Die Nürnberger Reise
 Elias Canetti - Die Stimmen von Marrakesch
 Thomas Mann - Mario und der Zauberer
@@ -47,8 +50,6 @@ W. G. Sebald - Schwindel. Gefühle.
 W. G. Sebald - Austerlitz'';
 in
 layouts.withPage.other page ''
-<br>
-
 Some books I enjoyed reading.
 
 <!-- TODO fix -->

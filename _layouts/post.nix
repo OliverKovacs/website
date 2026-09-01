@@ -12,7 +12,7 @@ layouts.default
         ${ includes.dateAuthor }
     </header>
 
-    <main id="main">
+    <main class="post">
         <article>
             ${ content }
         </article>

@@ -6,14 +6,7 @@ let
     };
 in
 layouts.withPage.other page ''
-<br>
-
 List of some music I like.
-
-<br>
-<br>
-
-<!-- TODO fix -->
 
 <ul id="music" class="card-list">
 ${

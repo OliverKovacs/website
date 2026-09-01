@@ -5,23 +5,20 @@ let
     };
 in
 layouts.withPage.other page ''
-<main>
-    <br>
-    Some photos I took.
-    <br>
-    <br>
-    <br>
-    ${
-        help.map
-            ({ location, date }: ''
-                <figure class="photo">
-                    <img src="./assets/img/photos/${ date }.jpg" alt="photo" tabindex="0"/>
-                    <figcaption>
-                        ${ location } ${ date }
-                    </figcaption>
-                </figure>
-            '')
-            data.photos
-    }
-</main>
+Some photos I took.
+
+<div id="photos">
+${
+    help.map
+        ({ location, date }: ''
+            <figure class="photo">
+                <img src="./assets/img/photos/${ date }.jpg" alt="photo" tabindex="0"/>
+                <figcaption>
+                    ${ location } ${ date }
+                </figcaption>
+            </figure>
+        '')
+        data.photos
+}
+</div>
 ''
