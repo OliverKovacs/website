@@ -3,6 +3,8 @@ let
     page = {
         title = "Reading";
         id = "reading";
+        noKatex = true;
+        noCode = true;
     };
 in
 let

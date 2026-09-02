@@ -1,5 +1,5 @@
 ---
-author: "Oliver Kovacs"
+author: "Olivér Kovács"
 layout: post
 title:  "La Femme - Nouvelle-Orléans [Bass]"
 date:   2026-07-21T00:00:00+02:00

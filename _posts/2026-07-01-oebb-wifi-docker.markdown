@@ -1,5 +1,5 @@
 ---
-author:     Oliver Kovacs
+author:     Olivér Kovács
 category:   blog
 date:       2026-07-01T00:00:00+02:00
 icon:       ./assets/img/technologies/nix.svg

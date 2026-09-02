@@ -3,6 +3,8 @@ let
     page = {
         title = "Music";
         id = "music";
+        noKatex = true;
+        noCode = true;
     };
 in
 layouts.withPage.other page ''

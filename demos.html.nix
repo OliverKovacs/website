@@ -1,7 +1,9 @@
-{ layouts, includes, posts, help, data, ... }@site:
+{ layouts, includes, posts, help, data, ... }:
 let
     page = {
         title = "Demos";
+        noKatex = true;
+        noCode = true;
     };
 in
 layouts.withPage.other page ''

@@ -1,7 +1,7 @@
 { layouts, includes, posts, fun, data, help, ... }@site:
 let
     page = {
-        title = "Oliver Kovacs";
+        title = "Olivér Kovács";
         home = true;
     };
 in

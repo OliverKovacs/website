@@ -1,5 +1,5 @@
 ---
-author:   "Oliver Kovacs"
+author:   "Olivér Kovács"
 layout:   post
 title:    "Punkhash"
 date:     2026-08-31T00:00:00+02:00

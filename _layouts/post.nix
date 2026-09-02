@@ -12,12 +12,16 @@ layouts.default
         ${ includes.dateAuthor }
     </header>
 
-    <main class="post">
+    <main id="main" class="post">
         <article>
             ${ content }
         </article>
     </main>
 
-    ${ includes.prevNext }
+    ${
+        if page ? noPrevNext
+            then ""
+            else includes.prevNext
+    }
 </div>
 ''

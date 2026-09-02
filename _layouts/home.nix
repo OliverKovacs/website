@@ -9,7 +9,7 @@ layouts.default
         ${ includes.contacts true }
     </header>
 
-    <main class="home">
+    <main id="main" class="home">
         ${ content }
     </main>
 

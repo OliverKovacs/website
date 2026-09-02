@@ -1,5 +1,5 @@
 ---
-author: "Oliver Kovacs"
+author: "Olivér Kovács"
 layout: post
 title:  "Fast RSA"
 date:   2025-07-07T00:00:00+02:00
@@ -37,7 +37,7 @@ The goal is to determine $\(d\)$.
 
 > Disclosure: I was not able to solve this challenge at the competition.
 
-We can _almost_ use an attack by Walter & Thompson<sup>1</sup>.
+We can _almost_ use an attack by Walter & Thompson.<sup>1</sup>
 You can find my implementation [here](https://github.com/OliverKovacs/montgomery-sidechannel/).
 
 The only difference is that in each step it is not known which of the two

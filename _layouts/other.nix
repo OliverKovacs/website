@@ -7,7 +7,7 @@ layouts.default ''
         ${ includes.contacts false }
     </header>
 
-    <main>
+    <main id="main">
         ${ content }
     </main>
 </div>

@@ -1,5 +1,5 @@
 ---
-author:     Oliver Kovacs
+author:     Olivér Kovács
 category:   blog
 date:       2024-07-05T00:00:00+02:00
 icon:       "./assets/img/technologies/openvpn.svg"

@@ -3,7 +3,7 @@ let
     optional = arg: pref: class: if arg != null
         then ''
             <td><a class="${ class }" href="/${ arg.meta.path }">
-                ${pref}: ${ arg.meta.title }
+                ${ pref }: ${ arg.meta.title }
             </a></td>
         ''
         else "";

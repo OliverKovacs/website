@@ -2,6 +2,8 @@
 let
     page = {
         title = "Photos";
+        noKatex = true;
+        noCode = true;
     };
 in
 layouts.withPage.other page ''

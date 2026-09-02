@@ -1,5 +1,5 @@
 ---
-author: "Oliver Kovacs"
+author: "Olivér Kovács"
 layout: post
 title:  "Stealing Seeds"
 date:   2024-04-06T00:00:00+02:00
