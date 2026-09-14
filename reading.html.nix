@@ -11,6 +11,7 @@ let
     heading = year: ''<h3 id="${ year }">${ year }</h3>'';
     list = builtins.replaceStrings [ "\n" ] [ "<br>\n" ];
     l2026 = ''
+Max Frisch - Homo Faber
 Robert Musil - Die Amsel / Kleine Prosa
 Szerb Antal - Utas és Holdvilág
 Hermann Hesse - Der Steppenwolf
