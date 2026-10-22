@@ -61,4 +61,10 @@ layouts.withPage.post page
 <li>Folien [ <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex04/slides.pdf">pdf</a>, <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex04/slides.tex">tex</a> ]</li>
 <li>Aufgaben [ <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex04/tasks.pdf">pdf</a> ]</li>
 </ul>
+
+<h3 class="plain">Woche 5 (22. 10.)</h3>
+<ul class="dash">
+<li>Folien [ <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex05/slides.pdf">pdf</a>, <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex05/slides.tex">tex</a> ]</li>
+<li>Aufgaben [ <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex05/tasks.pdf">pdf</a> ]</li>
+</ul>
 ''
