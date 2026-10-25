@@ -170,7 +170,7 @@ See also `man systemd.network`.
 Set your prefered non-VPN name server as your global DNS server in `/etc/systemd/resolved.conf`:
 ```ini
 [Resolve]
-DNS=8.8.8.8
+DNS=9.9.9.9
 ```
 See also `man systemd-resolved.service`.
 
@@ -181,7 +181,7 @@ systemctl restart systemd-networkd
 systemctl restart systemd-resolved
 ```
 
-This has the effect that `host1.site1.example` will be resolved using `10.10.10.53` but `on.the.internet` using `8.8.8.8`.
+This has the effect that `host1.site1.example` will be resolved using `10.10.10.53` but `on.the.internet` using `9.9.9.9`.
 
 Add routing information for the VPN name server and other resources you need to access:
 ```bash
@@ -199,8 +199,8 @@ The output should look something like this:
 Global
          Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
   resolv.conf mode: foreign
-Current DNS Server: 8.8.8.8
-       DNS Servers: 8.8.8.8
+Current DNS Server: 9.9.9.9
+       DNS Servers: 9.9.9.9
 
 Link 2 (wlp1s0)
     Current Scopes: DNS
