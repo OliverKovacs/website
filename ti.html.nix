@@ -3,6 +3,7 @@ let
     page = {
         title = "Theoretische Informatik";
         author = "Olivér Kovács";
+        lang = "de";
         noPrevNext = true;
         noKatex = true;
         noCode = true;

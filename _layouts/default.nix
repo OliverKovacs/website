@@ -5,7 +5,7 @@
 
   ${ includes.head }
 
-  <body>
+  <body${ if page ? home then " class=\"home\"" else "" }>
     <a id="skip" href="#main"><h2>Skip to main content</h2></a>
 
     ${ content }

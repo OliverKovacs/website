@@ -9,11 +9,11 @@ layouts.default
         ${ includes.contacts true }
     </header>
 
-    <main id="main" class="home">
+    <main id="main" class="home-main">
         ${ content }
     </main>
 
-    <footer class="home dark">
+    <footer class="home-main dark">
         ${ includes.info }
         ${ includes.polyring }
     </footer>
