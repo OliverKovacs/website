@@ -91,4 +91,10 @@ layouts.withPage.post page
 <ul class="dash">
 <li>Folien [ <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex09/slides.pdf">pdf</a>, <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex09/slides.tex">tex</a> ]</li>
 </ul>
+
+<h3 class="plain">Woche 10 (26. 11.)</h3>
+<ul class="dash">
+<li>Folien [ <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex10/slides.pdf">pdf</a>, <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex10/slides.tex">tex</a> ]</li>
+<li>Aufgaben [ <a href="https://raw.githubusercontent.com/OliverKovacs/ti/refs/heads/main/ex10/tasks.pdf">pdf</a> ]</li>
+</ul>
 ''
